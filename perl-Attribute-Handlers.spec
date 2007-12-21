@@ -10,6 +10,7 @@ URL:		http://search.cpan.org/dist/%{real_name}
 Source0:	http://search.cpan.org/CPAN/authors/id/A/AB/ABERGMAN/%{real_name}-%{version}.tar.bz2
 BuildRequires:	perl-devel
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This module, when inherited by a package, allows that package's class to
