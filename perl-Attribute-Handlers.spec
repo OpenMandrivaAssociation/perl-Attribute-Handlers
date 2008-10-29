@@ -1,16 +1,18 @@
-%define real_name Attribute-Handlers
+%define module Attribute-Handlers
+%define name    perl-%{module}
+%define version 0.80
+%define release %mkrel 1
 
+Name:       %{name}
+Version:    %{version}
+Release:    %{release}
 Summary:	Simpler definition of attribute handlers
-Name:		perl-%{real_name}
-Version:	0.78
-Release:	%mkrel 3
 License:	GPL or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	http://search.cpan.org/CPAN/authors/id/A/AB/ABERGMAN/%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
+URL:		http://search.cpan.org/dist/%{module}
+Source:     http://www.cpan.org/modules/by-module/Attribute/%{module}-%{version}.tar.gz
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This module, when inherited by a package, allows that package's class to
@@ -21,9 +23,7 @@ the attribute handler subroutines, which will then be called at the end
 of the compilation phase (i.e. in a `CHECK' block).
 
 %prep
-
-%setup -q -n %{real_name}-%{version} 
-
+%setup -q -n %{module}-%{version} 
 chmod 644 Changes README
 
 %build
@@ -44,5 +44,5 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc Changes README
-%attr(0644,root,root) %{perl_vendorlib}/Attribute/*
+%{perl_vendorlib}/Attribute
 %{_mandir}/*/*
