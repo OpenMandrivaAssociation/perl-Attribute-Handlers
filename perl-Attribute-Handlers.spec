@@ -1,18 +1,18 @@
-%define module Attribute-Handlers
-%define name    perl-%{module}
-%define version 0.85
-%define release %mkrel 1
+%define upstream_name    Attribute-Handlers
+%define upstream_version 0.85
 
-Name:       %{name}
-Version:    %{version}
-Release:    %{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Simpler definition of attribute handlers
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source:     http://www.cpan.org/modules/by-module/Attribute/%{module}-%{version}.tar.gz
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Attribute/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module, when inherited by a package, allows that package's class to
@@ -23,7 +23,7 @@ the attribute handler subroutines, which will then be called at the end
 of the compilation phase (i.e. in a `CHECK' block).
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 chmod 644 Changes README
 
 %build
@@ -35,7 +35,6 @@ make test
 
 %install
 rm -rf %{buildroot}
-
 %makeinstall_std
 
 %clean 
