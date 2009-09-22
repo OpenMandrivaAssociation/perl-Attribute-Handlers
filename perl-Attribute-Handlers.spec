@@ -1,9 +1,9 @@
 %define upstream_name    Attribute-Handlers
-%define upstream_version 0.86
+%define upstream_version 0.87
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:	Simpler definition of attribute handlers
 License:	GPL+ or Artistic
